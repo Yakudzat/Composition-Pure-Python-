@@ -8,40 +8,156 @@ class Owner:
             self.__hunger = hunger # голод
 
         def feed(self):
-            self.__mood += 10
-            self.__hunger -= 10
+            if self.__mood < 90:
+                self.__mood += 10
+            else:
+                self.__mood = 100
 
+            if self.__hunger > 10:
+                self.__hunger -= 10
+            else:
+                self.__hunger = 0
+            print(f" {self.kind} {self.name}: Настроение - {self.__mood}, Голод - {self.__hunger}")
         def play(self):
-            self.__mood += 10
-            self.__hunger += 10
+            if self.__mood < 90:
+                self.__mood += 10
+            else:
+                self.__mood = 100
+
+            if self.__hunger < 90:
+                self.__hunger += 10
+            else:
+                self.__hunger = 0
+
+            print(f" {self.kind} {self.name}: Настроение - {self.__mood}, Голод - {self.__hunger}")
 
         def speak(self):
-            return ""
+            pass
+
+
+        def getMood(self):
+            return self.__mood
+
+        def getHunger(self):
+            return self.__hunger
+
+    class Cat(Pet):
+        def __init__(self, name, kind, mood, hunger):
+            super().__init__(name, kind, mood, hunger)
+
+        def speak(self):
+            print("Мяу! Мяу!")
+
+    class Dog(Pet):
+        def __init__(self, name, kind, mood, hunger):
+            super().__init__(name, kind, mood, hunger)
+
+        def speak(self):
+            print("Гав! Гав!")
+
+    class Parrot(Pet):
+        def __init__(self, name, kind, mood, hunger):
+            super().__init__(name, kind, mood, hunger)
+
+        def speak(self):
+            print("Чирик! Чирик!")
+
+    class Dragon(Pet):
+        def __init__(self, name, kind, mood, hunger):
+            super().__init__(name, kind, mood, hunger)
+
+        def speak(self):
+            print("Рррааар! Рррааар!")
+
+
+
+
 
     def __init__(self, name, age, pets):
         self.name = name
         self.age = age
         self.pets = pets
-    def add_pet(self, pets):
-        self.pets.append(Owner.Pet)
+    def add_pet(self):
+        name = input("Имя животного")
+        kind = input("Животное")
+        mood = input("Настроение животного:")
+        hunger = input("Голод животного:")
 
+        for _ in range(4):
+            if kind == "Кот":
+                self.pets.append(Owner.Cat(name, kind, mood, hunger))
+            if kind == "Собака":
+                self.pets.append(Owner.Dog(name, kind, mood, hunger))
+            if kind == "Попугай":
+                self.pets.append(Owner.Parrot(name, kind, mood, hunger))
+            if kind == "Дракон":
+                self.pets.append(Owner.Dragon(name, kind, mood, hunger))
+
+        print("Питомец добавлен")
     def feed_all(self):
         for pet in self.pets:
             pet.feed()
-
+            print(f" {pet.kind} {pet.name}: Настроение - {pet.getMood()}, Голод - {pet.getHunger()}")
     def play_with_all(self):
         for pet in self.pets:
             pet.play()
+            print(f" {pet.kind} {pet.name}: Настроение - {pet.getMood()}, Голод - {pet.getHunger()}")
 
     def get_info(self):
         for pet in self.pets:
-            print(f" {pet.kind} {pet.name}: Настроение - {pet.mood}, Голод - {pet.hunger}")
+            print(f" {pet.kind} {pet.name}: Настроение - {pet.getMood()}, Голод - {pet.getHunger()}")
+
+
+Ann = Owner("Аня", 26, [Owner.Cat("Степа", "Кот", 50, 50), Owner.Parrot("Гоша", "Попугай", 39, 47)])
+Ilia = Owner("Илья", 19, [Owner.Dog("Джем", "Собака", 79, 19), Owner.Dragon("Беззубик", "Дракон", 99, 99)])
 
 
 
+print(f" 1 — Покормить всех питомцев хозяина")
+print(f" 2 — Поиграть со всеми питомцами")
+print(f" 3 — Добавить нового питомца")
+print(f" 4 — Показать информацию")
+print(f" 5 — Питомцы говорят!")
+print(f" 0 — Выход)")
+
+n = int(input())
+while n != 0:
+    if n == 1:
+        Ann.feed_all()
+    if n == 2:
+        Ann.play_with_all()
+    if n == 3:
+        Ann.add_pet()
+    if n == 4:
+        Ann.get_info()
+    if n == 5:
+        Ann.Cat.speak()
+        Ann.Dog.speak()
+    n = int(input())
 
 
+print(f" 1 — Покормить всех питомцев хозяина")
+print(f" 2 — Поиграть со всеми питомцами")
+print(f" 3 — Добавить нового питомца")
+print(f" 4 — Показать информацию")
+print(f" 5 — Питомцы говорят!")
+print(f" 0 — Выход")
+print()
 
+n = int(input())
+while n != 0:
+    if n == 1:
+        Ilia.feed_all()
+    if n == 2:
+        Ilia.play_with_all()
+    if n == 3:
+        Ilia.add_pet()
+    if n == 4:
+        Ilia.get_info()
+    if n == 5:
+        Ilia.Cat.speak()
+        Ilia.Dog.speak()
+    n = int(input())
 
 
 
