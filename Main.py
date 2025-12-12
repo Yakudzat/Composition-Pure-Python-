@@ -78,20 +78,18 @@ class Owner:
         self.age = age
         self.pets = pets
     def add_pet(self):
-        name = input("Имя животного")
-        kind = input("Животное")
-        mood = input("Настроение животного:")
-        hunger = input("Голод животного:")
-
-        for _ in range(4):
-            if kind == "Кот":
-                self.pets.append(Owner.Cat(name, kind, mood, hunger))
-            if kind == "Собака":
-                self.pets.append(Owner.Dog(name, kind, mood, hunger))
-            if kind == "Попугай":
-                self.pets.append(Owner.Parrot(name, kind, mood, hunger))
-            if kind == "Дракон":
-                self.pets.append(Owner.Dragon(name, kind, mood, hunger))
+        name = input("Имя животного: ")
+        kind = input("Животное: ")
+        mood = input("Настроение животного: ")
+        hunger = input("Голод животного: ")
+        if kind == "Кот":
+            self.pets.append(Owner.Cat(name, kind, mood, hunger))
+        if kind == "Собака":
+            self.pets.append(Owner.Dog(name, kind, mood, hunger))
+        if kind == "Попугай":
+            self.pets.append(Owner.Parrot(name, kind, mood, hunger))
+        if kind == "Дракон":
+            self.pets.append(Owner.Dragon(name, kind, mood, hunger))
 
         print("Питомец добавлен")
     def feed_all(self):
@@ -118,7 +116,7 @@ print(f" 2 — Поиграть со всеми питомцами")
 print(f" 3 — Добавить нового питомца")
 print(f" 4 — Показать информацию")
 print(f" 5 — Питомцы говорят!")
-print(f" 0 — Выход)")
+print(f" 0 — Выход")
 
 n = int(input())
 while n != 0:
