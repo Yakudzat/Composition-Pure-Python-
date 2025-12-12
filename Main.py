@@ -18,5 +18,61 @@ class Owner:
         def speak(self):
             return ""
 
+    def __init__(self, name, age, pets):
+        self.name = name
+        self.age = age
+        self.pets = pets
+    def add_pet(self, pets):
+        self.pets.append(Owner.Pet)
+
+    def feed_all(self):
+        for pet in self.pets:
+            pet.feed()
+
+    def play_with_all(self):
+        for pet in self.pets:
+            pet.play()
+
+    def get_info(self):
+        for pet in self.pets:
+            print(f" {pet.kind} {pet.name}: Настроение - {pet.mood}, Голод - {pet.hunger}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
