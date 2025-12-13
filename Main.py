@@ -110,83 +110,31 @@ Ann = Owner("Аня", 26, [Owner.Cat("Степа", "Кот", 50, 50), Owner.Parr
 Ilia = Owner("Илья", 19, [Owner.Dog("Джем", "Собака", 79, 19), Owner.Dragon("Беззубик", "Дракон", 99, 99)])
 
 
+people = [Ann, Ilia]
 
-print(f" 1 — Покормить всех питомцев хозяина")
-print(f" 2 — Поиграть со всеми питомцами")
-print(f" 3 — Добавить нового питомца")
-print(f" 4 — Показать информацию")
-print(f" 5 — Питомцы говорят!")
-print(f" 0 — Выход")
+for person in people:
+    print(person.name)
+    print()
+    print(f" 1 — Покормить всех питомцев хозяина")
+    print(f" 2 — Поиграть со всеми питомцами")
+    print(f" 3 — Добавить нового питомца")
+    print(f" 4 — Показать информацию")
+    print(f" 5 — Питомцы говорят!")
+    print(f" 0 — Выход")
 
-n = int(input())
-while n != 0:
-    if n == 1:
-        Ann.feed_all()
-    if n == 2:
-        Ann.play_with_all()
-    if n == 3:
-        Ann.add_pet()
-    if n == 4:
-        Ann.get_info()
-    if n == 5:
-        Ann.Cat.speak()
-        Ann.Dog.speak()
     n = int(input())
-
-
-print(f" 1 — Покормить всех питомцев хозяина")
-print(f" 2 — Поиграть со всеми питомцами")
-print(f" 3 — Добавить нового питомца")
-print(f" 4 — Показать информацию")
-print(f" 5 — Питомцы говорят!")
-print(f" 0 — Выход")
-print()
-
-n = int(input())
-while n != 0:
-    if n == 1:
-        Ilia.feed_all()
-    if n == 2:
-        Ilia.play_with_all()
-    if n == 3:
-        Ilia.add_pet()
-    if n == 4:
-        Ilia.get_info()
-    if n == 5:
-        Ilia.Cat.speak()
-        Ilia.Dog.speak()
-    n = int(input())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while n != 0:
+        if n == 1:
+            person.feed_all()
+        if n == 2:
+            person.play_with_all()
+        if n == 3:
+            person.add_pet()
+        if n == 4:
+            person.get_info()
+        if n == 5:
+            for pet in person.pets:
+                print(f"{pet.kind} {pet.name}")
+                pet.speak()
+                print()
+        n = int(input())
